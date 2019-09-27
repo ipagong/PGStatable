@@ -1,0 +1,6 @@
+framework module Pods_PGStatable_Tests {
+  umbrella header "Pods-PGStatable_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
