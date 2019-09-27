@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		0417FFE1C8D64DC0A7F99B92 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1BC67EA524A991FA1A5891DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		2DEFDD41D1A4E9E7506488C1 /* PGStatable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PGStatable.podspec; path = ../PGStatable.podspec; sourceTree = "<group>"; };
+		2DEFDD41D1A4E9E7506488C1 /* PGStatable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PGStatable.podspec; path = ../PGStatable.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3B3EEA907186F7C3CDE2F8B5 /* Pods_PGStatable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGStatable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		497972C157287DD38AE66C1D /* Pods_PGStatable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGStatable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* PGStatable_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGStatable_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
