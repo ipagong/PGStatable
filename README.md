@@ -9,6 +9,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Explain by Diagram.
+
+![](./img/PGStatable_Classes.jpg)
+
 ## Requirements
 ```ruby
 swift 5.0
