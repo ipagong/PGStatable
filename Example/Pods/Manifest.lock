@@ -1,0 +1,16 @@
+PODS:
+  - PGStatable (0.1.0)
+
+DEPENDENCIES:
+  - PGStatable (from `../`)
+
+EXTERNAL SOURCES:
+  PGStatable:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PGStatable: 8cba619724c8510d82f2b855b4fe20ef300b5a38
+
+PODFILE CHECKSUM: f833f3b8ef8d9f622525539844154995f64e1e5e
+
+COCOAPODS: 1.6.1

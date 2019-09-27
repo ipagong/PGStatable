@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PGStatable_Example' do
+  pod 'PGStatable', :path => '../'
+
+  target 'PGStatable_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
