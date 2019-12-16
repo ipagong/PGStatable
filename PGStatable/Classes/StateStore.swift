@@ -1,5 +1,6 @@
 //
 //  StateStoreType.swift
+//  
 //
 //  Created by ipagong on 09/07/2019.
 //  Copyright © 2019 suwan.park All rights reserved.
@@ -7,17 +8,23 @@
 
 import UIKit
 
-class StateStore<State:StateType> {
+/// StateContainer 내부의 State를 관리하는 저장체 /n
+/// 내부는 평범한 스택으로 구현되어있음.
+public class StateStore<State:StateType> {
+    /// Generic 스택.
     private var stack:StoreStack<State> = StoreStack<State>()
 }
 
 extension StateStore {
+    /// push의 메소드래퍼
+    /// - Parameter state: 상태값.
     func invoke(state:State) {
-        guard self.current() != state else { return }
+        guard self.current()?.dataKey != state.dataKey else { return }
         
         self.stack.push(element: state)
     }
     
+    /// pop의 메소드래퍼
     func undo() -> State? {
         guard let poped = self.stack.pop() else { return nil }
         let state = self.stack.peek() ?? poped
@@ -25,20 +32,21 @@ extension StateStore {
         return state
     }
     
+    /// peek의 메소드래퍼
     func current() -> State? {
         return self.stack.peek()
     }
 }
 
-struct StoreStack<T:StateType> {
+fileprivate struct StoreStack<T:StateType> {
     private var elements = [T]()
     public init() {}
     
-    public mutating func push(element: T)   { self.elements.append(element)     }
-    public mutating func pop() -> T?        { return self.elements.popLast()    }
-    public func peek() -> T?                { return self.elements.last         }
-    public var isEmpty: Bool                { return self.elements.isEmpty      }
-    public var count: Int                   { return self.elements.count        }
+    fileprivate mutating func push(element: T)   { self.elements.append(element)     }
+    fileprivate mutating func pop() -> T?        { return self.elements.popLast()    }
+    fileprivate func peek() -> T?                { return self.elements.last         }
+    fileprivate var isEmpty: Bool                { return self.elements.isEmpty      }
+    fileprivate var count: Int                   { return self.elements.count        }
 }
 
 extension StoreStack: CustomStringConvertible {

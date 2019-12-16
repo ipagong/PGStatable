@@ -1,26 +1,36 @@
 //
 //  StateContainer.swift
 //
+//
 //  Created by ipagong on 09/07/2019.
 //  Copyright © 2019 suwan.park All rights reserved.
 //
 
 import UIKit
 
-open class AnyStateContainer : UIViewController {
-    func invoke(state:AnyStateType) { }
-    func undo() { }
+public protocol AnyStateContainerType : class {
+    func invoke(state:AnyStateType)
+    func undo()
 }
 
-open class StateContainer<State> : AnyStateContainer where State: StateType, State: StateSceneFactory {
+public protocol StateContainerType : AnyStateContainerType {
+    associatedtype State : StateType
+    
+    func invoke(state:State)
+}
+
+extension StateContainerType {
+    public func invoke(state: AnyStateType) { self.invoke(state: state) }
+}
+
+open class StateContainer<State> : UIViewController, StateContainerType where State: StateType, State: StateSceneFactory {
     typealias Completion = (Bool) -> ()
     
-    let store = StateStore<State>()
+    fileprivate let store = StateStore<State>()
     
     var didUpdated:StateContainer.Completion?
     
-    override func invoke(state: AnyStateType) {
-        guard let state = state as? State else { return }
+    open func invoke(state: State) {
         guard self.shouldChange(state: state) == true else {return }
         
         self.push(state: state)
@@ -28,7 +38,7 @@ open class StateContainer<State> : AnyStateContainer where State: StateType, Sta
         self.didChange(state: state)
     }
     
-    override public func undo() {
+    open func undo() {
         self.pop()
     }
     
@@ -57,8 +67,8 @@ extension StateContainer {
             return
         }
         
-        if state == self.store.current() {
-            state.bindData(with: self.prevScene)
+        if state.dataKey == self.store.current()?.dataKey {
+            self.prevScene?.bindState(state)
             didUpdated?(true)
             return
         }
@@ -72,16 +82,15 @@ extension StateContainer {
 
 extension StateContainer {
     func performScene(with state: State?) {
-        guard let to = state?.scene         else { return }
-        guard let toVc = to.controller      else { return }
+        guard let to   = state?.scene else { return }
+        guard let toVc = to.asController else { return }
         
         let fromScene = self.prevScene
         
         self.paste(toVc)
-        to.container = self
         
-        guard let from = fromScene          else { return }
-        guard let fromVc = from.controller  else { return }
+        guard let from   = fromScene else { return }
+        guard let fromVc = from.asController else { return }
         
         self.transition(from: from, to: to) { [weak self] in self?.remove(from: fromVc) }
     }
@@ -105,7 +114,7 @@ extension StateContainer {
             return
         }
         
-        target.transition(from: from, to: to) { completion() }
+        target.transition(from: from).execute(from: from, to: to) { completion() }
     }
     
     private func remove(from: UIViewController) {
@@ -126,6 +135,8 @@ extension UIViewController {
             return
         }
         
-        present._dismissAllPresentedControllers { [weak present] in present?._dismissAllPresentedControllers(completion) }
+        present._dismissAllPresentedControllers { [weak present] in
+            present?.dismiss(animated: true, completion: completion)
+        }
     }
 }
