@@ -1,16 +1,16 @@
 //
 //  StateStoreType.swift
-//  
+//  KakaoMobility
 //
-//  Created by ipagong on 09/07/2019.
-//  Copyright © 2019 suwan.park All rights reserved.
+//  Created suwan.park on 09/07/2019.
+//  Copyright © 2019 Mobility-iOS. All rights reserved.
 //
 
 import UIKit
 
 /// StateContainer 내부의 State를 관리하는 저장체 /n
 /// 내부는 평범한 스택으로 구현되어있음.
-public class StateStore<State:StateType> {
+class StateStore<State:StateType> {
     /// Generic 스택.
     private var stack:StoreStack<State> = StoreStack<State>()
 }

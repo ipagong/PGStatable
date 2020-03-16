@@ -1,19 +1,19 @@
 //
 //  StateContainer.swift
+//  KakaoMobility
 //
-//
-//  Created by ipagong on 09/07/2019.
-//  Copyright © 2019 suwan.park All rights reserved.
+//  Created suwan.park on 09/07/2019.
+//  Copyright © 2019 Mobility-iOS. All rights reserved.
 //
 
 import UIKit
 
-public protocol AnyStateContainerType : class {
+protocol AnyStateContainerType : class {
     func invoke(state:AnyStateType)
     func undo()
 }
 
-public protocol StateContainerType : AnyStateContainerType {
+protocol StateContainerType : AnyStateContainerType {
     associatedtype State : StateType
     
     func invoke(state:State)
@@ -30,7 +30,7 @@ open class StateContainer<State> : UIViewController, StateContainerType where St
     
     var didUpdated:StateContainer.Completion?
     
-    open func invoke(state: State) {
+    func invoke(state: State) {
         guard self.shouldChange(state: state) == true else {return }
         
         self.push(state: state)
@@ -38,7 +38,7 @@ open class StateContainer<State> : UIViewController, StateContainerType where St
         self.didChange(state: state)
     }
     
-    open func undo() {
+    public func undo() {
         self.pop()
     }
     

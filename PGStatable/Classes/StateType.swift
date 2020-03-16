@@ -1,9 +1,9 @@
 //
 //  StateType.swift
-//  
+//  KakaoMobility
 //
-//  Created by ipagong on 09/07/2019.
-//  Copyright © 2019 suwan.park All rights reserved.
+//  Created suwan.park on 09/07/2019.
+//  Copyright © 2019 Mobility-iOS. All rights reserved.
 //
 
 import UIKit
@@ -13,13 +13,13 @@ public protocol AnyStateType { }
 
 /// 실제 서비스에서 구현해아할 State(상태) 인터페이스
 public protocol StateType : AnyStateType {
-    associatedtype ElementKey : Equatable
+    associatedtype Data : Equatable
     
     /// 상태별 Equtable을 데이타 비교를 위한 프로퍼티.
-    var dataKey:ElementKey? { get }
+    var dataKey:Data?     { get }
     
     /// 해당 상태가 Scene의 존재 여부를 위한 프로퍼티.
-    var hasScene:Bool { get }
+    var hasScene:Bool     { get }
 }
 
 extension StateType {

@@ -1,14 +1,14 @@
 //
 //  StateAnimationType.swift
-//  
+//  KakaoMobility
 //
-//  Created by ipagong on 09/07/2019.
-//  Copyright © 2019 suwan.park All rights reserved.
+//  Created suwan.park on 09/07/2019.
+//  Copyright © 2019 Mobility-iOS. All rights reserved.
 //
 
 import UIKit
 
-public struct StateScene {
+struct StateScene {
     typealias Completion = () -> ()
     typealias CustomTransition = (StateSceneType, StateSceneType, StateScene.Completion) -> ()
 }
