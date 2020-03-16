@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0919F65E9D83C74688783056C0918189 /* StateSceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB1841F8AF38A47CDA33F2FB6074FC /* StateSceneType.swift */; };
-		094138E22918F1FA49B6C416ECE21B5A /* StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81830E803A5E991D21B1D54EDAEA36CC /* StateStore.swift */; };
-		0B311C3240A76A97CE58865F224E3743 /* StateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DEF8BBB80BABF2114AC805CB21D03 /* StateContainer.swift */; };
-		0C663F56377BFC8CFBA2167C094CEBD2 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610C957FB27555B37B9669E046DFEADE /* StateType.swift */; };
 		354C6B7BB62DD6B5038238453E539253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		484006A27936938AA138108178E51F70 /* StateSceneTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2B919ABFD7390A74A236DC271E43 /* StateSceneTransitioning.swift */; };
 		4A57F3C73D22D5FF28DA7CD772EC8C9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		62DB6A1D852F5DDA5B562EA7318C510B /* PGStatable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B230FAF6483A7D941DDEFF720E5098 /* PGStatable-dummy.m */; };
 		7A7C1AE16AD0B093915277EBFFB02732 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		A8EB3F7E289DC05190A078CC87261B2C /* PGStatable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6814576465FC7D77911942785EDCA63F /* PGStatable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2F984B17781093A4B33DDA1067C89A1 /* StoryboardStateSceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080F8E78F23FFE73715D6A3BA1B9F6 /* StoryboardStateSceneType.swift */; };
+		CC5C91AF241FEDD200965153 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5C91AA241FEDD200965153 /* StateType.swift */; };
+		CC5C91B0241FEDD200965153 /* StateSceneTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5C91AB241FEDD200965153 /* StateSceneTransitioning.swift */; };
+		CC5C91B1241FEDD200965153 /* StateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5C91AC241FEDD200965153 /* StateContainer.swift */; };
+		CC5C91B2241FEDD200965153 /* StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5C91AD241FEDD200965153 /* StateStore.swift */; };
+		CC5C91B3241FEDD200965153 /* StateSceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5C91AE241FEDD200965153 /* StateSceneType.swift */; };
 		CF8E32DD6C40BBBA479FDF59BAE7BB31 /* Pods-PGStatable_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59240374FDF5731D63FCCFDB4581E782 /* Pods-PGStatable_Example-dummy.m */; };
 		F4E203EFBE427BABED32A1ED69277A4F /* Pods-PGStatable_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBFA381CA75FCD7F4C256D394E698D83 /* Pods-PGStatable_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC656DF676BCB6EF80E7960AD74A8CAB /* Pods-PGStatable_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6517EF765E0BD8753A816EAB84FC4BA9 /* Pods-PGStatable_Tests-dummy.m */; };
@@ -42,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03716758860D5B15488BC710939D705C /* Pods_PGStatable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PGStatable_Example.framework; path = "Pods-PGStatable_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03716758860D5B15488BC710939D705C /* Pods_PGStatable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGStatable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		090D7177FEB0B6B2ED464512BC5C9568 /* Pods-PGStatable_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PGStatable_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0F659B5F1CBFD63F54C8768297E3158C /* Pods-PGStatable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGStatable_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1F6855F137D090E5DB15D2A228ADF64E /* PGStatable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGStatable-prefix.pch"; sourceTree = "<group>"; };
@@ -51,31 +50,30 @@
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5598ECE13DF55B3CA0B88C8349D4133F /* Pods-PGStatable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGStatable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		59240374FDF5731D63FCCFDB4581E782 /* Pods-PGStatable_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PGStatable_Example-dummy.m"; sourceTree = "<group>"; };
-		5E315EDDD7828894EEB525CB6BC1A2DD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5E315EDDD7828894EEB525CB6BC1A2DD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60B10EB4ECA9C811B40B096C4137DA16 /* Pods-PGStatable_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PGStatable_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		610C957FB27555B37B9669E046DFEADE /* StateType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateType.swift; path = PGStatable/Classes/StateType.swift; sourceTree = "<group>"; };
 		6517EF765E0BD8753A816EAB84FC4BA9 /* Pods-PGStatable_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PGStatable_Tests-dummy.m"; sourceTree = "<group>"; };
 		6814576465FC7D77911942785EDCA63F /* PGStatable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGStatable-umbrella.h"; sourceTree = "<group>"; };
 		77A4344402231094B1807F624F8E12BA /* Pods-PGStatable_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PGStatable_Example-Info.plist"; sourceTree = "<group>"; };
 		7B93EF5FC4EE54B8FFC8EEB555E3F5D1 /* PGStatable-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PGStatable-Info.plist"; sourceTree = "<group>"; };
-		81830E803A5E991D21B1D54EDAEA36CC /* StateStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateStore.swift; path = PGStatable/Classes/StateStore.swift; sourceTree = "<group>"; };
-		87E4A86281B203843FB6F3C2987D4977 /* Pods_PGStatable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PGStatable_Tests.framework; path = "Pods-PGStatable_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87E4A86281B203843FB6F3C2987D4977 /* Pods_PGStatable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGStatable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBFDFA21720B8886872DCFC9FD000A1 /* PGStatable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PGStatable.modulemap; sourceTree = "<group>"; };
-		90080F8E78F23FFE73715D6A3BA1B9F6 /* StoryboardStateSceneType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardStateSceneType.swift; path = PGStatable/Classes/StoryboardStateSceneType.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AA6092BE821164AA69CC0C5B51003552 /* Pods-PGStatable_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PGStatable_Example.modulemap"; sourceTree = "<group>"; };
 		B1801CD0439C388BBE31236749D16513 /* Pods-PGStatable_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PGStatable_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B68919AE3E26B4787BAED606FC057B7C /* Pods-PGStatable_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGStatable_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B6CCA59FA1E1EB0C450C3E8F9CE19BB5 /* Pods-PGStatable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGStatable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BFF066801749D3024D1C7A52FB3B1107 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		C9CB2B919ABFD7390A74A236DC271E43 /* StateSceneTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateSceneTransitioning.swift; path = PGStatable/Classes/StateSceneTransitioning.swift; sourceTree = "<group>"; };
+		BFF066801749D3024D1C7A52FB3B1107 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CBDEA1F9F0CEB8BEEA291C3174CF5D79 /* Pods-PGStatable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGStatable_Example.release.xcconfig"; sourceTree = "<group>"; };
+		CC5C91AA241FEDD200965153 /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateType.swift; path = PGStatable/Classes/StateType.swift; sourceTree = "<group>"; };
+		CC5C91AB241FEDD200965153 /* StateSceneTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateSceneTransitioning.swift; path = PGStatable/Classes/StateSceneTransitioning.swift; sourceTree = "<group>"; };
+		CC5C91AC241FEDD200965153 /* StateContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateContainer.swift; path = PGStatable/Classes/StateContainer.swift; sourceTree = "<group>"; };
+		CC5C91AD241FEDD200965153 /* StateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateStore.swift; path = PGStatable/Classes/StateStore.swift; sourceTree = "<group>"; };
+		CC5C91AE241FEDD200965153 /* StateSceneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateSceneType.swift; path = PGStatable/Classes/StateSceneType.swift; sourceTree = "<group>"; };
 		CFD3E8D1FEEB21C35B42043C4496B1DF /* Pods-PGStatable_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PGStatable_Tests.modulemap"; sourceTree = "<group>"; };
-		D98DEF8BBB80BABF2114AC805CB21D03 /* StateContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateContainer.swift; path = PGStatable/Classes/StateContainer.swift; sourceTree = "<group>"; };
-		DB1E1CFEC72192D32DF22A61F00E4E6A /* PGStatable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PGStatable.framework; path = PGStatable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8AB1841F8AF38A47CDA33F2FB6074FC /* StateSceneType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateSceneType.swift; path = PGStatable/Classes/StateSceneType.swift; sourceTree = "<group>"; };
+		DB1E1CFEC72192D32DF22A61F00E4E6A /* PGStatable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PGStatable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFA381CA75FCD7F4C256D394E698D83 /* Pods-PGStatable_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PGStatable_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F5D8A09A7FF9D88CB553E5D115907CF1 /* PGStatable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = PGStatable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F5D8A09A7FF9D88CB553E5D115907CF1 /* PGStatable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = PGStatable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F6EBA06A3A541B467321FE469FB1592E /* Pods-PGStatable_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PGStatable_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F77097A361F583922FB7FA39EF3F1198 /* Pods-PGStatable_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PGStatable_Example-umbrella.h"; sourceTree = "<group>"; };
 		F8B230FAF6483A7D941DDEFF720E5098 /* PGStatable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PGStatable-dummy.m"; sourceTree = "<group>"; };
@@ -112,12 +110,11 @@
 		009C3EB60AE544AAD9A3A188FFF3CA4E /* PGStatable */ = {
 			isa = PBXGroup;
 			children = (
-				D98DEF8BBB80BABF2114AC805CB21D03 /* StateContainer.swift */,
-				C9CB2B919ABFD7390A74A236DC271E43 /* StateSceneTransitioning.swift */,
-				E8AB1841F8AF38A47CDA33F2FB6074FC /* StateSceneType.swift */,
-				81830E803A5E991D21B1D54EDAEA36CC /* StateStore.swift */,
-				610C957FB27555B37B9669E046DFEADE /* StateType.swift */,
-				90080F8E78F23FFE73715D6A3BA1B9F6 /* StoryboardStateSceneType.swift */,
+				CC5C91AC241FEDD200965153 /* StateContainer.swift */,
+				CC5C91AB241FEDD200965153 /* StateSceneTransitioning.swift */,
+				CC5C91AE241FEDD200965153 /* StateSceneType.swift */,
+				CC5C91AD241FEDD200965153 /* StateStore.swift */,
+				CC5C91AA241FEDD200965153 /* StateType.swift */,
 				B99ADA6526880EBF73D3318A8FB68EDE /* Pod */,
 				2CDA27CDFC77F13B2CE22F942D467EE5 /* Support Files */,
 			);
@@ -330,6 +327,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					65E6FF1E2803978C451DFC19ABE7D532 = {
+						LastSwiftMigration = 1110;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -395,13 +397,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5C91B3241FEDD200965153 /* StateSceneType.swift in Sources */,
+				CC5C91B0241FEDD200965153 /* StateSceneTransitioning.swift in Sources */,
+				CC5C91B2241FEDD200965153 /* StateStore.swift in Sources */,
 				62DB6A1D852F5DDA5B562EA7318C510B /* PGStatable-dummy.m in Sources */,
-				0B311C3240A76A97CE58865F224E3743 /* StateContainer.swift in Sources */,
-				484006A27936938AA138108178E51F70 /* StateSceneTransitioning.swift in Sources */,
-				0919F65E9D83C74688783056C0918189 /* StateSceneType.swift in Sources */,
-				094138E22918F1FA49B6C416ECE21B5A /* StateStore.swift in Sources */,
-				0C663F56377BFC8CFBA2167C094CEBD2 /* StateType.swift in Sources */,
-				B2F984B17781093A4B33DDA1067C89A1 /* StoryboardStateSceneType.swift in Sources */,
+				CC5C91AF241FEDD200965153 /* StateType.swift in Sources */,
+				CC5C91B1241FEDD200965153 /* StateContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,8 +644,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -654,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2463966F8A4FE878D76CF53F6081642E /* PGStatable.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -687,6 +688,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2463966F8A4FE878D76CF53F6081642E /* PGStatable.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -708,6 +710,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
