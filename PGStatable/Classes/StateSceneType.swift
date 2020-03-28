@@ -9,7 +9,7 @@
 import UIKit
 
 /// 기본 StateScene 컨트롤러 인터페이스
-public protocol StateSceneType : class {
+public protocol StateSceneType: class {
     /// ViewController 식별자. (Xib 로드용)
     static var identifier: String { get }
     
@@ -25,7 +25,7 @@ public protocol StateSceneType : class {
 extension StateSceneType where Self : NSObject {
     static var identifier: String { return String(describing: self) }
     
-    func bindState(_ : StateSceneFactory) {  }
+    func bindState(_: StateSceneFactory) {  }
 }
 
 extension StateSceneType {
@@ -44,20 +44,20 @@ extension StateSceneType {
 }
 
 /// 스토리 보드 베이스의 StateScene 컨트롤러 인터페이스
-public protocol StoryboardStateSceneType : StateSceneType {
+public protocol StoryboardStateSceneType: StateSceneType {
     /// 스토리보드 파일명.
-    static var storyboardIdentifier : String { get }
+    static var storyboardIdentifier: String { get }
     
     /// 생성시 베이스가 될 주입할 Bundle.
-    static var bundle:Bundle? { get }
+    static var bundle: Bundle? { get }
 }
 
 extension StoryboardStateSceneType {
-    static var bundle:Bundle? { return nil }
+    static var bundle: Bundle? { return nil }
     
-    func bindState(_ : StateSceneFactory) {  }
+    func bindState(_: StateSceneFactory) {  }
     
-    static func createIntance<State: StateSceneFactory>(_ state:State) -> StateSceneType? {
+    static func createIntance<State: StateSceneFactory>(_ state: State) -> StateSceneType? {
         guard let vc = UIStoryboard(name: Self.storyboardIdentifier, bundle: self.bundle).instantiateViewController(withIdentifier: Self.identifier) as? StateSceneType else { return nil }
         vc.bindState(state)
         return vc
@@ -65,7 +65,7 @@ extension StoryboardStateSceneType {
 }
 
 /// '스토리 보드 베이스 + 데이타 바인딩' 을 위한 StateScene 컨트롤러 인터페이스
-public protocol BindableStoryboardStateSceneType : StoryboardStateSceneType {
+public protocol BindableStoryboardStateSceneType: StoryboardStateSceneType {
     associatedtype SceneValue
     
     /// State 값을 Scene을 위한 데이타로 변경하기 위한 메소드

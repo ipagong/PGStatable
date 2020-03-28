@@ -8,29 +8,29 @@
 
 import UIKit
 
-protocol AnyStateContainerType : class {
+public protocol AnyStateContainerType: class {
     func invoke(state:AnyStateType)
     func undo()
 }
 
-protocol StateContainerType : AnyStateContainerType {
-    associatedtype State : StateType
+public protocol StateContainerType: AnyStateContainerType {
+    associatedtype State: StateType
     
-    func invoke(state:State)
+    func invoke(state: State)
 }
 
 extension StateContainerType {
     public func invoke(state: AnyStateType) { self.invoke(state: state) }
 }
 
-open class StateContainer<State> : UIViewController, StateContainerType where State: StateType, State: StateSceneFactory {
+open class StateContainer<State>: UIViewController, StateContainerType where State: StateType, State: StateSceneFactory {
     typealias Completion = (Bool) -> ()
     
     fileprivate let store = StateStore<State>()
     
-    var didUpdated:StateContainer.Completion?
+    var didUpdated: StateContainer.Completion?
     
-    func invoke(state: State) {
+    public func invoke(state: State) {
         guard self.shouldChange(state: state) == true else {return }
         
         self.push(state: state)
@@ -47,7 +47,7 @@ open class StateContainer<State> : UIViewController, StateContainerType where St
 }
 
 extension StateContainer {
-    final private func push(state:State)  {
+    final private func push(state: State)  {
         self.update(state: state)
         self.store.invoke(state: state)
     }
@@ -57,11 +57,11 @@ extension StateContainer {
         self.update(state: prev)
     }
     
-    final private func update(state:State?) {
+    final private func update(state: State?) {
         self.should(state: state, didUpdated: self.didUpdated)
     }
     
-    func should(state:State?, didUpdated: StateContainer.Completion?) {
+    func should(state: State?, didUpdated: StateContainer.Completion?) {
         guard let state = state, state.hasScene == true else {
             didUpdated?(false)
             return

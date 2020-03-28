@@ -10,15 +10,15 @@ import UIKit
 
 /// StateContainer 내부의 State를 관리하는 저장체 /n
 /// 내부는 평범한 스택으로 구현되어있음.
-class StateStore<State:StateType> {
+class StateStore<State: StateType> {
     /// Generic 스택.
-    private var stack:StoreStack<State> = StoreStack<State>()
+    private var stack: StoreStack<State> = StoreStack<State>()
 }
 
 extension StateStore {
     /// push의 메소드래퍼
     /// - Parameter state: 상태값.
-    func invoke(state:State) {
+    func invoke(state: State) {
         guard self.current()?.dataKey != state.dataKey else { return }
         
         self.stack.push(element: state)
@@ -38,7 +38,7 @@ extension StateStore {
     }
 }
 
-fileprivate struct StoreStack<T:StateType> {
+fileprivate struct StoreStack<T: StateType> {
     private var elements = [T]()
     public init() {}
     

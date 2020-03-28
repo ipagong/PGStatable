@@ -8,31 +8,31 @@
 
 import UIKit
 
-struct StateScene {
-    typealias Completion = () -> ()
-    typealias CustomTransition = (StateSceneType, StateSceneType, StateScene.Completion) -> ()
+public struct StateScene {
+    public typealias Completion = () -> ()
+    public typealias CustomTransition = (StateSceneType, StateSceneType, StateScene.Completion) -> ()
 }
 
-protocol StateSceneTransitioning : class {
+public protocol StateSceneTransitioning : class {
     func transition(from: StateSceneType) -> StateScene.Transition
 }
 
-protocol StateScneneTransitioingDelegate {
+public protocol StateScneneTransitioingDelegate {
     func execute(from: StateSceneType, to: StateSceneType, completion: @escaping StateScene.Completion)
 }
 
 extension StateScene {
-    enum Transition {
-        case push(duration:TimeInterval = 0.3)
-        case pop(duration:TimeInterval = 0.3)
-        case present(duration:TimeInterval = 0.3)
-        case dismiss(duration:TimeInterval = 0.3)
+    public enum Transition {
+        case push(duration: TimeInterval = 0.3)
+        case pop(duration: TimeInterval = 0.3)
+        case present(duration: TimeInterval = 0.3)
+        case dismiss(duration: TimeInterval = 0.3)
         case paste
-        case fade(scale: CGFloat = 1.0, duration:TimeInterval = 0.3)
+        case fade(scale: CGFloat = 1.0, duration: TimeInterval = 0.3)
         case delegate(transition: StateScneneTransitioingDelegate)
         case functional(transition: StateScene.CustomTransition)
         
-        func execute(from: StateSceneType, to: StateSceneType, completion: @escaping StateScene.Completion) {
+        public func execute(from: StateSceneType, to: StateSceneType, completion: @escaping StateScene.Completion) {
             guard let toVc   = to.asController   else { return }
             guard let fromVc = from.asController else { return }
             
