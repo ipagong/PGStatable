@@ -19,7 +19,7 @@ extension StateStore {
     /// push의 메소드래퍼
     /// - Parameter state: 상태값.
     func invoke(state: State) {
-        guard self.current()?.dataKey != state.dataKey else { return }
+        guard self.current() != state else { return }
         
         self.stack.push(element: state)
     }

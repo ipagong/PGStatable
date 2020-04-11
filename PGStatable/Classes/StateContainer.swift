@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol AnyStateContainerType: class {
-    func invoke(state:AnyStateType)
+    func invoke(state: AnyStateType)
     func undo()
 }
 
@@ -23,7 +23,7 @@ extension StateContainerType {
     public func invoke(state: AnyStateType) { self.invoke(state: state) }
 }
 
-open class StateContainer<State>: UIViewController, StateContainerType where State: StateType, State: StateSceneFactory {
+open class StateContainer<State>: UIViewController, StateContainerType where State: StateType {
     typealias Completion = (Bool) -> ()
     
     fileprivate let store = StateStore<State>()
@@ -62,12 +62,12 @@ extension StateContainer {
     }
     
     func should(state: State?, didUpdated: StateContainer.Completion?) {
-        guard let state = state, state.hasScene == true else {
+        guard let state = state else {
             didUpdated?(false)
             return
         }
         
-        if state.dataKey == self.store.current()?.dataKey {
+        if state == self.store.current() {
             self.prevScene?.bindState(state)
             didUpdated?(true)
             return

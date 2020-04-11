@@ -15,17 +15,17 @@ public protocol StateSceneType: class {
     
     /// ViewController 팩토리 메소드
     /// - Parameter state: ViewController 내부에서 사용하기 위한 상태값.
-    static func createIntance<State: StateSceneFactory>(_ state:State) -> StateSceneType?
+    static func createIntance<State: StateType>(_ state:State) -> StateSceneType?
     
     /// ViewController가 생성된 후, 데이타 주입하는 메소드.
     /// - Parameter state: ViewController 내부에서 사용하기 위한 상태값.
-    func bindState(_ : StateSceneFactory)
+    func bindState(_ : AnyStateType)
 }
 
 extension StateSceneType where Self : NSObject {
     static var identifier: String { return String(describing: self) }
     
-    func bindState(_: StateSceneFactory) {  }
+    func bindState(_: AnyStateType) {  }
 }
 
 extension StateSceneType {
@@ -55,9 +55,9 @@ public protocol StoryboardStateSceneType: StateSceneType {
 extension StoryboardStateSceneType {
     static var bundle: Bundle? { return nil }
     
-    func bindState(_: StateSceneFactory) {  }
+    func bindState(_: AnyStateType) {  }
     
-    static func createIntance<State: StateSceneFactory>(_ state: State) -> StateSceneType? {
+    static func createIntance<State: StateType>(_ state: State) -> StateSceneType? {
         guard let vc = UIStoryboard(name: Self.storyboardIdentifier, bundle: self.bundle).instantiateViewController(withIdentifier: Self.identifier) as? StateSceneType else { return nil }
         vc.bindState(state)
         return vc
@@ -66,16 +66,16 @@ extension StoryboardStateSceneType {
 
 /// '스토리 보드 베이스 + 데이타 바인딩' 을 위한 StateScene 컨트롤러 인터페이스
 public protocol BindableStoryboardStateSceneType: StoryboardStateSceneType {
-    associatedtype SceneValue
+    associatedtype SceneData
     
     /// State 값을 Scene을 위한 데이타로 변경하기 위한 메소드
     /// - Parameter value: ViewController에서 사용하고자 하는 데이타형(associatedtype)으로 변환(옵셔널 캐스팅)하여 주입받는 메소드.
-    func bindData(_ value: SceneValue)
+    func bindData(_ value: SceneData)
 }
 
 extension BindableStoryboardStateSceneType where Self : UIViewController {
-    func bindState(_ state: StateSceneFactory) {
-        guard let value = state.sceneValue as? SceneValue else { return }
+    func bindState(_ state: AnyStateType) {
+        guard let value = state.sceneData as? SceneData else { return }
         self.bindData(value)
     }
 }
