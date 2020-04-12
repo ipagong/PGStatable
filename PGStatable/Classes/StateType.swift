@@ -20,9 +20,9 @@ public protocol StateType: AnyStateType, Equatable {
     var sceneType: StateSceneType.Type { get }
 }
 
-public extension StateType {
+extension StateType {
     /// scene의 팩토리 메소드. 구현체의 타입을 실제화 하여 인터페이스로 반환하는 컴퓨티드 프로퍼티.
-    var scene: StateSceneType? {
+    public var scene: StateSceneType? {
         return self.sceneType.createIntance(self)
     }
 }

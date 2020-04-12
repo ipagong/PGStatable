@@ -15,32 +15,32 @@ public protocol StateSceneType: class {
     
     /// ViewController 팩토리 메소드
     /// - Parameter state: ViewController 내부에서 사용하기 위한 상태값.
-    static func createIntance<State: StateType>(_ state:State) -> StateSceneType?
+    static func createIntance<State: StateType>(_ state: State) -> StateSceneType?
     
     /// ViewController가 생성된 후, 데이타 주입하는 메소드.
     /// - Parameter state: ViewController 내부에서 사용하기 위한 상태값.
-    func bindState(_ : AnyStateType)
+    func bindState(_ state: AnyStateType)
 }
 
-extension StateSceneType where Self : NSObject {
-    static var identifier: String { return String(describing: self) }
+extension StateSceneType {
+    public static var identifier: String { String(describing: self) }
     
-    func bindState(_: AnyStateType) {  }
+    public func bindState(_ state: AnyStateType) {  }
 }
 
 extension StateSceneType {
     /// ViewController로 변환용.
-    var asController:UIViewController? { return self as? UIViewController }
+    public var asController: UIViewController? { self as? UIViewController }
     
     /// StateContainner 프로퍼미 (navigationController 와 유사)
-    var stateContainer:AnyStateContainerType? { self.asController?.parent as? AnyStateContainerType }
+    public var stateContainer: AnyStateContainerType? { self.asController?.parent as? AnyStateContainerType }
     
     /// 컨트롤러 내부에서 State 값을 변환하여 화면 전환을 위한 것. (push 와 유사)
     /// - Parameter state:
-    func invoke<State:StateType>(state:State) { self.stateContainer?.invoke(state: state) }
+    public func invoke<State:StateType>(state:State) { self.stateContainer?.invoke(state: state) }
     
     /// 컨트롤러 내부에서 이전 State 값으로 변환하며 화면 전환을 위한 것. (pop 과 유사)
-    func undo() { self.stateContainer?.undo() }
+    public func undo() { self.stateContainer?.undo() }
 }
 
 /// 스토리 보드 베이스의 StateScene 컨트롤러 인터페이스
@@ -53,11 +53,11 @@ public protocol StoryboardStateSceneType: StateSceneType {
 }
 
 extension StoryboardStateSceneType {
-    static var bundle: Bundle? { return nil }
+    public static var bundle: Bundle? { nil }
     
-    func bindState(_: AnyStateType) {  }
+    public func bindState(_ state: AnyStateType) {  }
     
-    static func createIntance<State: StateType>(_ state: State) -> StateSceneType? {
+    public static func createIntance<State: StateType>(_ state: State) -> StateSceneType? {
         guard let vc = UIStoryboard(name: Self.storyboardIdentifier, bundle: self.bundle).instantiateViewController(withIdentifier: Self.identifier) as? StateSceneType else { return nil }
         vc.bindState(state)
         return vc
@@ -74,7 +74,7 @@ public protocol BindableStoryboardStateSceneType: StoryboardStateSceneType {
 }
 
 extension BindableStoryboardStateSceneType where Self : UIViewController {
-    func bindState(_ state: AnyStateType) {
+    public func bindState(_ state: AnyStateType) {
         guard let value = state.sceneData as? SceneData else { return }
         self.bindData(value)
     }
