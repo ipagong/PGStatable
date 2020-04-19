@@ -42,6 +42,10 @@ open class StateContainer<State>: UIViewController, StateContainerType where Sta
         self.pop()
     }
     
+    public func current() -> State? {
+        self.store.current()
+    }
+    
     open func shouldChange(state: State) -> Bool { return true }
     open func didChange(state: State) { }
 }
