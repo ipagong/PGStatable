@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PGStatable'
-  s.version          = '0.3.3'
+  s.version          = '0.3.4'
   s.summary          = 'State with protocols'
   s.description      = 'Container with State that simple protocols.'
 

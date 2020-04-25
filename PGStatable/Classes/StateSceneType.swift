@@ -37,7 +37,7 @@ extension StateSceneType {
     
     /// 컨트롤러 내부에서 State 값을 변환하여 화면 전환을 위한 것. (push 와 유사)
     /// - Parameter state:
-    public func invoke<State:StateType>(state:State) { self.stateContainer?.invoke(state: state) }
+    public func invoke<State:StateType>(state:State) { self.stateContainer?.invoke(any: state) }
     
     /// 컨트롤러 내부에서 이전 State 값으로 변환하며 화면 전환을 위한 것. (pop 과 유사)
     public func undo() { self.stateContainer?.undo() }

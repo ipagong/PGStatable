@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol AnyStateContainerType: class {
-    func invoke(state: AnyStateType)
+    func invoke(any state: AnyStateType)
     func undo()
 }
 
@@ -20,7 +20,10 @@ public protocol StateContainerType: AnyStateContainerType {
 }
 
 extension StateContainerType {
-    public func invoke(state: AnyStateType) { self.invoke(state: state) }
+    public func invoke(any state: AnyStateType) {
+        guard let state = state as? State else { return }
+        self.invoke(state: state)
+    }
 }
 
 open class StateContainer<State>: UIViewController, StateContainerType where State: StateType {
