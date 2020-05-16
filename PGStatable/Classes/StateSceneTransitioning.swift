@@ -102,16 +102,19 @@ extension StateScene {
         
         to.view.bringSubviewToFront(from.view)
         
-        from.view.layer.shadowColor = UIColor(hexStr: "#000000", alpha: 0.8).cgColor
-        from.view.layer.shadowOpacity = 0.1
-        from.view.layer.shadowOffset = CGSize(width: -5, height: 0)
+        to.view.layer.shadowColor = UIColor(hexStr: "#000000", alpha: 0.8).cgColor
+        to.view.layer.shadowOpacity = 0.1
+        to.view.layer.shadowOffset = CGSize(width: -5, height: 0)
         
-        let x = bounds.width * 0.4
-        
-        to.view.frame = CGRect(x: -x,
+        to.view.frame = CGRect(x: -bounds.width,
                                y: 0,
                                width: bounds.width,
                                height: bounds.height)
+        
+        from.view.frame = CGRect(x: 0,
+                                 y: 0,
+                                 width: bounds.width,
+                                 height: bounds.height)
         
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
             
@@ -120,13 +123,14 @@ extension StateScene {
                                        y: 0,
                                        width: bounds.width,
                                        height: bounds.height)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.9, animations: {
-                from.view.frame = CGRect(x: bounds.width,
+                
+                from.view.frame = CGRect(x: bounds.width * 0.4,
                                          y: 0,
                                          width: bounds.width,
                                          height: bounds.height)
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.9, animations: {
             })
             
         }, completion: { _ in
