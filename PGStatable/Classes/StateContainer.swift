@@ -33,7 +33,7 @@ open class StateContainer<State>: UIViewController, StateContainerType where Sta
     
     var didUpdated: StateContainer.Completion?
     
-    public func invoke(state: State) {
+    open func invoke(state: State) {
         guard self.shouldChange(state: state) == true else {return }
         
         self.push(state: state)
@@ -41,20 +41,15 @@ open class StateContainer<State>: UIViewController, StateContainerType where Sta
         self.didChange(state: state)
     }
     
-    public func undo() {
-        self.pop()
-    }
-    
-    public func current() -> State? {
-        self.store.current()
-    }
-    
-    open func shouldChange(state: State) -> Bool { return true }
+    open func undo() { self.pop() }
+    open func shouldChange(state: State) -> Bool { true }
     open func didChange(state: State) { }
+    
+    public func current() -> State? { self.store.current() }
 }
 
 extension StateContainer {
-    final private func push(state: State)  {
+    final public func push(state: State)  {
         self.update(state: state)
         self.store.invoke(state: state)
     }
