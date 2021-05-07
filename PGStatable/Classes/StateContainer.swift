@@ -95,6 +95,8 @@ extension StateContainer {
         guard let fromVc = from.asController else { return }
         
         self.transition(from: from, to: to) { [weak self] in self?.remove(from: fromVc) }
+        
+        fromVc.removeFromParent()
     }
 }
 
@@ -122,7 +124,6 @@ extension StateContainer {
     private func remove(from: UIViewController) {
         from.willMove(toParent: nil)
         from.view.removeFromSuperview()
-        from.removeFromParent()
     }
 }
 
